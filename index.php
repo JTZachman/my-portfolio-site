@@ -1,37 +1,5 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zachman Media</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
-  <header class="navbar">
-    <div class="logo">
-      <img src="img/logo.png" alt="Zachman Media Logo" />
-      <h1>Zachman Media</h1>
-    </div>
-    <!-- Hamburger/X button -->
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-    <nav>
-      <ul id="navbar-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<?php include('includes/header.php'); ?>
+<?php include('includes/nav.php'); ?>
 
   <main>
     <section class="hero">
@@ -71,8 +39,4 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Zachman Media. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+ <?php include('includes/footer.php'); ?>
