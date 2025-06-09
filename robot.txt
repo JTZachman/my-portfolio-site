@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+
+# Allow everything except these:
+Disallow: /includes/
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+Disallow: /vendor/
+
+# Sitemap (optional if you generate one later — helps SEO big time)
+# Sitemap: https://your-domain.com/sitemap.xml

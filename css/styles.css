@@ -1,4 +1,9 @@
 /* Base styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: #0a0a1a;
@@ -143,9 +148,21 @@ nav li {
 /* Hero */
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   background: linear-gradient(to right, #0ff, #09c);
   color: #0a0a1a;
+  border-bottom: 2px solid #0ff2;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.15);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 /* Services */
@@ -162,33 +179,150 @@ nav li {
 
 .service-card {
   background: #1a1a2e;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 8px;
   border: 1px solid #0ff2;
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 1.1rem;
+  color: #ddd;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
   border-color: #0ff;
+  box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
 }
 
+.service-card::before {
+  content: "🛠️";
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/**
+.service-card {
+  background: #1a1a2e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #0ff2;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #0ff;
+  box-shadow: 0 8px 16px rgba(0, 255, 255, 0.15);
+}
+**/
 /* About + Contact */
-.about,
-.contact {
-  padding: 3rem 2rem;
+.about {
+  padding: 4rem 2rem;
   background: #101020;
   border-top: 1px solid #0ff3;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.about h3 {
+  font-size: 2rem;
+  color: #0ff;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  margin-bottom: 1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.about p:hover {
+  opacity: 1;
+}
+
+.contact {
+  padding: 4rem 2rem;
+  background: #101020;
+  border-top: 1px solid #0ff3;
+  text-align: center;
+}
+
+.contact h3 {
+  font-size: 2rem;
+  color: #0ff;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea,
+.contact button {
+  padding: 0.75rem 1rem;
+  border: 1px solid #0ff3;
+  border-radius: 5px;
+  background: #0a0a1a;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #0ff;
+  outline: none;
+}
+
+.contact button {
+  background: #0ff;
+  color: #0a0a1a;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact button:hover {
+  background: #09c;
+  color: #fff;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   background: #080818;
   font-size: 0.9rem;
   color: #999;
+  border-top: 2px solid #0ff2;
+  letter-spacing: 0.05em;
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+footer p:hover {
+  opacity: 1;
 }
 
 /* Contact Form */
@@ -221,29 +355,138 @@ footer {
   background-color: #0ff;
   color: #0a0a1a;
   border: none;
-  border-radius: 6px;
   font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form button:hover {
-  background-color: #09c;
+  background-color: #09f;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #0ff6;
+  text-decoration: none;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
   background-color: #0ff;
   color: #0a0a1a;
-  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-weight: bold;
-  font-size: 1.1rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #09c;
+  background-color: #09f;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #0ff6;
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+  filter: brightness(1.3);
+  transform: scale(1.02);
+  text-decoration: none; /* just to be safe */
+}
+
+nav a {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  display: inline-block; /* smoother transform on mobile */
+}
+
+nav a:hover {
+  color: #09f; /* subtle shift from #0ff to slightly deeper blue */
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  text-decoration: none; /* force no underline */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-up.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-up.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.fade-in-up.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.projects {
+  padding: 3rem 2rem;
+  background: #101020;
+  border-top: 1px solid #0ff3;
+  text-align: center;
+}
+
+.projects h3 {
+  font-size: 2rem;
+  color: #0ff;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #1a1a2e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #0ff2;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: #0ff;
+  box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
+}
+
+.project-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #0ff;
+}
+
+.project-card p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.95rem;
 }
