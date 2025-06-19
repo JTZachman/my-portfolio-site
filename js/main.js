@@ -18,3 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // setupContactForm();
   // animateHeroSection();
 });
+
+  const navbar = document.querySelector('.navbar');
+
+  let lastScrollY = window.scrollY;
+
+  function handleScroll() {
+    if (window.innerWidth > 768) return; // only on mobile
+
+    if (window.scrollY > 10 && window.scrollY > lastScrollY) {
+      navbar.classList.add('shrink');
+    } else if (window.scrollY < lastScrollY || window.scrollY <= 10) {
+      navbar.classList.remove('shrink');
+    }
+
+    lastScrollY = window.scrollY;
+  }
+
+  window.addEventListener('scroll', handleScroll);

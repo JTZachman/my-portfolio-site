@@ -29,6 +29,12 @@ if (!isset($_SESSION['user_id'])) {
         <label>Content:</label><br>
         <textarea name="content" rows="10" cols="50" required></textarea><br><br>
         
+        <label>Excerpt (optional):</label><br>
+        <textarea name="excerpt" rows="3" cols="50"></textarea><br><br>
+        
+        <label>Author:</label><br>
+        <input type="text" name="author" required><br><br>
+        
         <label>Status:</label><br>
         <select name="status">
             <option value="published">Published</option>

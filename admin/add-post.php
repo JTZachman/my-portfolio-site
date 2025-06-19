@@ -1,42 +1,42 @@
 <?php
 session_start();
-require_once('../includes/db.php'); // Adjust path if needed
 
 // Check if logged in
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
-    exit();
+    exit;
 }
 
-// Get and sanitize form data
-$title = trim($_POST['title']);
-$slug = trim($_POST['slug']);
-$content = trim($_POST['content']);
-$status = $_POST['status'];
-$created_at = date('Y-m-d H:i:s');
+// DB config
+require_once '../includes/db.php';
+
+// Sanitize and assign variables
+$title   = trim($_POST['title'] ?? '');
+$slug    = trim($_POST['slug'] ?? '');
+$excerpt = trim($_POST['excerpt'] ?? '');
+$content = trim($_POST['content'] ?? '');
+$status  = $_POST['status'] ?? 'draft';
+$author  = $_SESSION['username'] ?? 'Anonymous'; // adjust based on how your session is set
 
 // Auto-generate slug if empty
 if (empty($slug)) {
     $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
 }
 
-// Insert into DB
+// Validate required fields
+if (empty($title) || empty($content)) {
+    die("Title and content are required.");
+}
+
+// Prepare the SQL insert
+$sql = "INSERT INTO blog_posts (title, slug, excerpt, content, status, author)
+        VALUES (?, ?, ?, ?, ?, ?)";
+$stmt = $pdo->prepare($sql);
 try {
-    $stmt = $pdo->prepare("INSERT INTO posts (title, slug, content, status, created_at) VALUES (:title, :slug, :content, :status, :created_at)");
-    
-    $stmt->execute([
-        ':title'      => $title,
-        ':slug'       => $slug,
-        ':content'    => $content,
-        ':status'     => $status,
-        ':created_at' => $created_at
-    ]);
-
-    // Redirect back to dashboard
-    header('Location: dashboard.php');
-    exit();
-
+    $stmt->execute([$title, $slug, $excerpt, $content, $status, $author]);
+    header("Location: dashboard.php?success=post-added");
+    exit;
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    die("Error inserting post: " . $e->getMessage());
 }
 ?>

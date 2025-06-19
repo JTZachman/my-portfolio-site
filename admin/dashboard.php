@@ -49,8 +49,8 @@ try {
                         <td><?php echo htmlspecialchars($post['status']); ?></td>
                         <td><?php echo htmlspecialchars($post['created_at']); ?></td>
                         <td>
-                            <a href="edit_post.php?id=<?php echo $post['id']; ?>">Edit</a> | 
-                            <a href="delete_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
+                            <a href="edit-post.php?id=<?php echo $post['id']; ?>">Edit</a> | 
+                            <a href="delete-post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

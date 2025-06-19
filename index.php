@@ -12,7 +12,7 @@
       <div class="service-grid">
         <div class="service-card fade-in-up delay-1">Web Development</div>
         <div class="service-card fade-in-up delay-1">App Development</div>
-        <div class="service-card fade-in-up delay-1">Software Engineering</div>
+        <div class="service-card fade-in-up delay-1">Game Development</div>
         <!--<div class="service-card">Game Development</div>
         <div class="service-card">Video Editing</div>
         <div class="service-card">Branding & Design</div>
